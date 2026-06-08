@@ -7,6 +7,7 @@ import WhyLocal from "@/components/WhyLocal";
 import CrimeStats from "@/components/CrimeStats";
 import Comparison from "@/components/Comparison";
 import Pricing from "@/components/Pricing";
+import CustomQuote from "@/components/CustomQuote";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <CrimeStats />
         <Comparison />
         <Pricing />
+        <CustomQuote />
         <Contact />
       </main>
       <Footer />
