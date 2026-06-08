@@ -1,77 +1,85 @@
 import {
-  Brain,
   Sun,
   HardDrive,
   Bell,
   Eye,
   Volume2,
-  Users,
-  Car,
+  ZoomIn,
+  RotateCcw,
+  Moon,
   TrendingUp,
+  Mic,
 } from "lucide-react";
 
 const features = [
   {
-    icon: Brain,
-    title: "Behaviour Detection",
+    icon: RotateCcw,
+    title: "360° No Blind Spots",
     description:
-      "AI scores every visitor by behaviour — loitering, checking windows, returning multiple times. Not just motion.",
+      "355° pan and 70° tilt. The SoloCam S340 covers your entire property from one mount point — no gaps, no hidden angles.",
     highlight: true,
   },
   {
-    icon: Eye,
-    title: "Face Recognition",
+    icon: ZoomIn,
+    title: "8× Hybrid Zoom",
     description:
-      "Learns your family, neighbours, and regular delivery drivers. Only alerts for genuine strangers.",
-    highlight: false,
-  },
-  {
-    icon: Volume2,
-    title: "Auto Voice Deterrence",
-    description:
-      'When a threat is detected, lights activate and an AI voice plays: "You are being recorded." Before anything happens.',
+      "Dual lens — 3K wide angle and 2K telephoto simultaneously. Read a number plate or identify a face from 12 metres away.",
     highlight: true,
   },
   {
     icon: Sun,
-    title: "Solar Powered",
+    title: "Forever Solar Power",
     description:
-      "No wiring needed. Solar panels keep cameras charged year-round, including UK winters.",
+      "2.2W removable solar panel charges 600–800mAh per day in sunlight. Never touch a battery again.",
     highlight: false,
   },
   {
     icon: HardDrive,
-    title: "100% Local Storage",
+    title: "Built-In 8GB Storage",
     description:
-      "All footage stored on-site. No cloud. No data sent to Amazon or Google. Your footage stays yours.",
+      "Footage stored directly on the camera. No SD card needed, no cloud, no monthly fee. Your recordings stay at your home.",
+    highlight: false,
+  },
+  {
+    icon: Eye,
+    title: "Local AI Detection",
+    description:
+      "Person and vehicle detection runs on the camera itself — no internet required. Only alerts for what matters.",
+    highlight: false,
+  },
+  {
+    icon: Moon,
+    title: "Colour Night Vision",
+    description:
+      "Built-in spotlight activates on detection, delivering full-colour footage in complete darkness — not just grey infrared.",
     highlight: false,
   },
   {
     icon: Bell,
     title: "Instant Phone Alerts",
     description:
-      "Real-time notifications with a photo clip the moment a person is detected. Works anywhere in the world.",
+      "Real-time notification with a video clip the moment a person or vehicle is detected — anywhere in the world.",
     highlight: false,
   },
   {
-    icon: Car,
-    title: "Vehicle Detection",
+    icon: Mic,
+    title: "Two-Way Audio",
     description:
-      "Detects and logs vehicles. Alerts when an unknown car stops outside or circles the street.",
+      "Speak directly to whoever is at your property through the eufy app. Deter intruders or talk to delivery drivers.",
     highlight: false,
   },
   {
-    icon: Users,
-    title: "Neighbourhood Mesh",
+    icon: Volume2,
+    title: "Works with Alexa & Google",
     description:
-      "Connect with nearby Defend customers. A suspicious person near one home silently alerts all connected homes.",
-    highlight: true,
+      "Ask Alexa or Google to show your camera feed on any smart display. Full smart home integration included.",
+    highlight: false,
   },
   {
     icon: TrendingUp,
     title: "Pays For Itself",
     description:
-      "Ring costs £100+/year in subscriptions. Defend costs once. In 3 years you're £300 ahead and still fully protected.",
+      "Ring costs £100+/year in subscriptions. The SoloCam S340 is one price, forever. In 3 years you're £300 ahead.",
     highlight: false,
   },
 ];
@@ -79,20 +87,19 @@ const features = [
 export default function Features() {
   return (
     <section id="features" className="py-24 relative">
-      {/* Background glow */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-3">
-            AI Features
+            eufy SoloCam S340
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Active defence, not passive recording
+            Everything in one camera
           </h2>
           <p className="text-white/50 max-w-xl mx-auto">
-            Ring and Nest record what happened. Defend prevents it from
-            happening.
+            The SoloCam S340 is the only camera you need — dual lens, solar
+            powered, AI detection, local storage. No subscriptions. Ever.
           </p>
         </div>
 
@@ -127,7 +134,7 @@ export default function Features() {
                 </p>
                 {f.highlight && (
                   <span className="inline-block mt-3 text-[10px] font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full">
-                    Unique to Defend
+                    Standout feature
                   </span>
                 )}
               </div>
