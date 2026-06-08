@@ -20,8 +20,8 @@ export default function DashboardPage() {
     <div className="bg-[#060b14] min-h-screen text-white">
       <div className="max-w-7xl mx-auto p-6 space-y-6">
 
-        {/* Back link */}
-        <div>
+        {/* Top bar */}
+        <div className="flex items-center justify-between">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-white transition-colors"
@@ -29,6 +29,12 @@ export default function DashboardPage() {
             <ArrowLeft className="h-3 w-3" />
             Back to website
           </Link>
+          <a
+            href="/api/logout"
+            className="text-xs text-white/25 hover:text-white/60 transition-colors"
+          >
+            Log out
+          </a>
         </div>
 
         {/* Header */}

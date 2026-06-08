@@ -1,4 +1,4 @@
-import { ShieldCheck, Zap, Wifi } from "lucide-react";
+import { Sun, HardDrive, Wifi } from "lucide-react";
 
 const stats = [
   { value: "245,284", label: "UK burglaries/yr" },
@@ -34,7 +34,7 @@ export default function Hero() {
           Protect Your Home.
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-            Not Your Bank Account.
+            Pay Once. Protected Forever.
           </span>
         </h1>
 
@@ -74,9 +74,9 @@ export default function Hero() {
         {/* Feature pills */}
         <div className="flex flex-wrap justify-center gap-3 mt-12">
           {[
-            { icon: ShieldCheck, text: "AI Behaviour Detection" },
-            { icon: Zap, text: "Auto Deterrence" },
+            { icon: Sun, text: "Solar Powered" },
             { icon: Wifi, text: "Local Storage Only" },
+            { icon: HardDrive, text: "No Monthly Fees" },
           ].map(({ icon: Icon, text }) => (
             <div
               key={text}
