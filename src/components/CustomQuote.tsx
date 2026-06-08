@@ -14,13 +14,6 @@ function calcTotal(n: number) {
   return { hardware, install, total: hardware + install };
 }
 
-function installTime(n: number) {
-  const mins = 60 + (n - 1) * 30;
-  if (mins < 60) return `${mins} mins`;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return m > 0 ? `${h}hr ${m}min` : `${h} hr`;
-}
 
 export default function CustomQuote() {
   const [count, setCount] = useState(2);
@@ -149,7 +142,7 @@ export default function CustomQuote() {
               <div className="flex items-center gap-2 pt-1">
                 <Clock className="w-3.5 h-3.5 text-white/25" />
                 <span className="text-xs text-white/35">
-                  Install time: approx {installTime(count)}
+                  Installation time varies — usually a couple of hours
                 </span>
               </div>
             </div>
