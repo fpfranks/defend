@@ -1,12 +1,8 @@
 "use client";
 
-const TODAY = new Date().toLocaleDateString("en-GB", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-});
+import { ClipboardList } from "lucide-react";
 
-type Status = "Completed" | "Pending";
+type Status = "Completed" | "Pending" | "Booked";
 
 interface Job {
   date: string;
@@ -18,41 +14,20 @@ interface Job {
   profit: string;
 }
 
-const jobs: Job[] = [
-  {
-    date: TODAY,
-    customer: "Demo Install",
-    postcode: "Your postcode",
-    pkg: "Starter",
-    value: "£229",
-    status: "Completed",
-    profit: "£159",
-  },
-  {
-    date: "",
-    customer: "— Book via website —",
-    postcode: "—",
-    pkg: "—",
-    value: "—",
-    status: "Pending",
-    profit: "—",
-  },
-  {
-    date: "",
-    customer: "— Book via website —",
-    postcode: "—",
-    pkg: "—",
-    value: "—",
-    status: "Pending",
-    profit: "—",
-  },
-];
+const jobs: Job[] = [];
 
 function StatusBadge({ status }: { status: Status }) {
   if (status === "Completed") {
     return (
       <span className="rounded-full bg-green-500/15 px-2 py-0.5 text-xs font-medium text-green-400">
         Completed
+      </span>
+    );
+  }
+  if (status === "Booked") {
+    return (
+      <span className="rounded-full bg-blue-500/15 px-2 py-0.5 text-xs font-medium text-blue-400">
+        Booked
       </span>
     );
   }
@@ -64,6 +39,16 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 export default function JobTracker() {
+  const completed = jobs.filter((j) => j.status === "Completed");
+  const totalRevenue = completed.reduce((sum, j) => {
+    const n = parseFloat(j.value.replace("£", "")) || 0;
+    return sum + n;
+  }, 0);
+  const totalProfit = completed.reduce((sum, j) => {
+    const n = parseFloat(j.profit.replace("£", "")) || 0;
+    return sum + n;
+  }, 0);
+
   return (
     <div className="rounded-2xl border border-white/8 overflow-hidden">
       {/* Header */}
@@ -74,50 +59,60 @@ export default function JobTracker() {
         </button>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="bg-white/5 text-left">
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Date</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Customer</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Postcode</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Package</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Value</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Status</th>
-              <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Profit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {jobs.map((job, i) => (
-              <tr
-                key={i}
-                className={i % 2 === 0 ? "bg-white/1" : "bg-transparent"}
-              >
-                <td className="px-4 py-3 text-white/60 whitespace-nowrap">{job.date || "—"}</td>
-                <td className="px-4 py-3 text-white/80 whitespace-nowrap">{job.customer}</td>
-                <td className="px-4 py-3 text-white/50">{job.postcode}</td>
-                <td className="px-4 py-3 text-white/50">{job.pkg}</td>
-                <td className="px-4 py-3 text-white/70 font-medium">{job.value}</td>
-                <td className="px-4 py-3">
-                  <StatusBadge status={job.status} />
-                </td>
-                <td className="px-4 py-3 text-white/70 font-medium">{job.profit}</td>
+      {jobs.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
+          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center mb-4">
+            <ClipboardList className="w-5 h-5 text-white/20" />
+          </div>
+          <p className="text-sm font-medium text-white/40 mb-1">No jobs yet</p>
+          <p className="text-xs text-white/25">
+            Your installs will appear here once you start booking jobs.
+          </p>
+        </div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-white/5 text-left">
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Date</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Customer</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Postcode</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Package</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Value</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Status</th>
+                <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-white/40">Profit</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {jobs.map((job, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white/1" : "bg-transparent"}>
+                  <td className="px-4 py-3 text-white/60 whitespace-nowrap">{job.date || "—"}</td>
+                  <td className="px-4 py-3 text-white/80 whitespace-nowrap">{job.customer}</td>
+                  <td className="px-4 py-3 text-white/50">{job.postcode}</td>
+                  <td className="px-4 py-3 text-white/50">{job.pkg}</td>
+                  <td className="px-4 py-3 text-white/70 font-medium">{job.value}</td>
+                  <td className="px-4 py-3"><StatusBadge status={job.status} /></td>
+                  <td className="px-4 py-3 text-white/70 font-medium">{job.profit}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {/* Footer summary */}
       <div className="border-t border-white/8 bg-white/3 px-5 py-3">
         <p className="text-xs text-white/40">
           Total this month:{" "}
-          <span className="text-white/70 font-medium">£229</span>
+          <span className="text-white/70 font-medium">
+            {totalRevenue > 0 ? `£${totalRevenue}` : "£0"}
+          </span>
           {" "}|{" "}Profit:{" "}
-          <span className="text-white/70 font-medium">£159</span>
+          <span className="text-white/70 font-medium">
+            {totalProfit > 0 ? `£${totalProfit}` : "£0"}
+          </span>
           {" "}|{" "}Jobs:{" "}
-          <span className="text-white/70 font-medium">1</span>
+          <span className="text-white/70 font-medium">{completed.length}</span>
         </p>
       </div>
     </div>
