@@ -8,13 +8,7 @@ const rows = [
     nest: true,
   },
   {
-    feature: "AI behaviour detection",
-    defend: true,
-    ring: false,
-    nest: false,
-  },
-  {
-    feature: "Auto voice deterrence",
+    feature: "Solar powered — no cables",
     defend: true,
     ring: false,
     nest: false,
@@ -26,19 +20,25 @@ const rows = [
     nest: false,
   },
   {
-    feature: "Solar powered",
+    feature: "Person & vehicle AI detection",
+    defend: true,
+    ring: true,
+    nest: true,
+  },
+  {
+    feature: "Colour night vision",
     defend: true,
     ring: false,
     nest: false,
   },
   {
-    feature: "Professional installation included",
+    feature: "360° pan & tilt coverage",
     defend: true,
     ring: false,
     nest: false,
   },
   {
-    feature: "Neighbourhood mesh alerts",
+    feature: "8× zoom dual lens",
     defend: true,
     ring: false,
     nest: false,
@@ -48,6 +48,12 @@ const rows = [
     defend: false,
     ring: true,
     nest: true,
+  },
+  {
+    feature: "Professional installation included",
+    defend: true,
+    ring: false,
+    nest: false,
   },
   {
     feature: "Local installer, answers phone",

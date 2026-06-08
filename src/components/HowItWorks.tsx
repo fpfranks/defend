@@ -20,7 +20,7 @@ const steps = [
     step: "03",
     title: "AI Protects 24/7",
     description:
-      "The system learns who belongs at your property. Strangers trigger lights, alerts and voice warnings automatically.",
+      "The S340 detects people and vehicles, activates the spotlight, and sends an instant alert to your phone with a video clip.",
   },
 ];
 
