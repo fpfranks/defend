@@ -11,9 +11,9 @@ const steps = [
   {
     icon: Settings,
     step: "02",
-    title: "Install in Under 2 Hours",
+    title: "Quick, Clean Installation",
     description:
-      "Solar-powered cameras mounted, AI configured, phone app set up. No wires. No drilling through walls.",
+      "Solar-powered cameras mounted, AI configured, phone app set up. No cables, no mess. Time depends on how many cameras you go for.",
   },
   {
     icon: ShieldCheck,
