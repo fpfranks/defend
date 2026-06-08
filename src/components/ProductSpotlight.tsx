@@ -1,4 +1,4 @@
-import { Check, ExternalLink } from "lucide-react";
+import { Check, ExternalLink, Sparkles } from "lucide-react";
 
 const specs = [
   { label: "Resolution", value: "3K Wide + 2K Telephoto (dual lens)" },
@@ -18,7 +18,7 @@ const specs = [
 const included = [
   "Full 360° property coverage from one mount",
   "Colour night vision — see clearly in the dark",
-  "Solar charged — no cables, no maintenance",
+  "Solar charged — self-sufficient, no cables, no daily upkeep",
   "AI detects people and vehicles, ignores animals",
   "8× zoom — identify faces and number plates",
   "Works with Alexa and Google Home",
@@ -117,6 +117,43 @@ export default function ProductSpotlight() {
                   See packages
                   <ExternalLink className="w-3 h-3" />
                 </a>
+              </div>
+            </div>
+
+            {/* Maintenance tip */}
+            <div className="rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-yellow-400" />
+                <h3 className="font-semibold text-white text-sm">
+                  Keeping it running at full power
+                </h3>
+              </div>
+              <p className="text-sm text-white/60 leading-relaxed mb-4">
+                The S340 is completely self-sufficient day to day — solar keeps
+                it charged and it looks after itself. The one thing worth doing
+                is giving the solar panel a quick wipe every now and then,
+                especially in the UK where dust, pollen and bird droppings can
+                build up and reduce charging efficiency.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0" />
+                  <p className="text-xs text-white/50">
+                    <span className="text-white/70 font-medium">Every 6 months</span> — wipe the solar panel with a damp cloth. Spring and autumn are ideal, before and after the summer sun.
+                  </p>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0" />
+                  <p className="text-xs text-white/50">
+                    <span className="text-white/70 font-medium">Takes 2 minutes</span> — no tools, no special products, just a damp cloth or sponge.
+                  </p>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0" />
+                  <p className="text-xs text-white/50">
+                    <span className="text-white/70 font-medium">Everything else</span> — runs itself. No charging, no replacing batteries, no touching the camera.
+                  </p>
+                </div>
               </div>
             </div>
 

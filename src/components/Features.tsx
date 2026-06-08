@@ -28,9 +28,9 @@ const features = [
   },
   {
     icon: Sun,
-    title: "Forever Solar Power",
+    title: "Self-Sufficient Solar",
     description:
-      "2.2W removable solar panel charges 600–800mAh per day in sunlight. Never touch a battery again.",
+      "2.2W solar panel keeps the camera fully charged year-round. Completely self-sufficient — no cables, no charging, no intervention needed day to day.",
     highlight: false,
   },
   {
