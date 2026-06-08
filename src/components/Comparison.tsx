@@ -44,10 +44,16 @@ const rows = [
     nest: false,
   },
   {
-    feature: "Your data on Amazon/Google servers",
+    feature: "Your data stored on their servers",
     defend: false,
     ring: true,
     nest: true,
+  },
+  {
+    feature: "Local installer, answers phone",
+    defend: true,
+    ring: false,
+    nest: false,
   },
 ];
 
@@ -148,8 +154,7 @@ export default function Comparison() {
         </div>
 
         <p className="text-center text-xs text-white/25 mt-4">
-          Based on standard plans as of 2025. Ring Protect Plus £10/mo. Google
-          Nest Aware £8/mo.
+          Ring Protect Plus £100/yr. Google Nest Aware Plus £96/yr. Defend: £0/yr forever.
         </p>
       </div>
     </section>

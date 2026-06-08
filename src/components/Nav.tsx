@@ -37,7 +37,13 @@ export default function Nav() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="/dashboard"
+            className="text-xs text-white/40 hover:text-white transition-colors"
+          >
+            Dashboard
+          </a>
           <a
             href="#contact"
             className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-colors"

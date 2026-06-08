@@ -1,9 +1,9 @@
 import { ShieldCheck, Zap, Wifi } from "lucide-react";
 
 const stats = [
-  { value: "245,000", label: "UK burglaries last year" },
-  { value: "£0/mo", label: "No subscription ever" },
-  { value: "20 min", label: "Average install time" },
+  { value: "245,284", label: "UK burglaries/yr" },
+  { value: "£0/mo", label: "No subscription" },
+  { value: "~1 hr", label: "Average install" },
   { value: "24/7", label: "AI protection" },
 ];
 
@@ -31,19 +31,16 @@ export default function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-6">
-          AI Home Defence
+          Protect Your Home.
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-            That Stops Crime.
+            Not Your Bank Account.
           </span>
-          <br />
-          Not Just Records It.
         </h1>
 
         <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Solar-powered AI cameras that detect suspicious behaviour, deter
-          intruders automatically, and alert your phone — all stored locally.
-          One price. No cloud. No subscriptions. Ever.
+          AI-powered solar cameras installed in under an hour. No wiring. No
+          monthly fees. No data sent to Amazon or Google. Ever.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">

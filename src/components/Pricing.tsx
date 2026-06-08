@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 const packages = [
   {
     name: "Starter",
-    price: "£199",
+    price: "£229",
     description: "Perfect for a flat or small house",
     items: [
       "1x outdoor solar AI camera",
@@ -18,7 +18,7 @@ const packages = [
   },
   {
     name: "Home",
-    price: "£399",
+    price: "£449",
     description: "Most popular — full home coverage",
     items: [
       "2x outdoor solar AI cameras",
@@ -35,7 +35,7 @@ const packages = [
   },
   {
     name: "Full Protection",
-    price: "£699",
+    price: "£749",
     description: "Maximum coverage for larger homes",
     items: [
       "4x outdoor solar AI cameras",
@@ -101,6 +101,9 @@ export default function Pricing() {
                     one-time
                   </span>
                 </div>
+                <p className="text-xs text-white/30 mt-2">
+                  vs £96–120/year forever with Ring or Nest
+                </p>
               </div>
 
               <ul className="space-y-3 mb-8 flex-1">

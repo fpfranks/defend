@@ -7,6 +7,7 @@ import {
   Volume2,
   Users,
   Car,
+  TrendingUp,
 } from "lucide-react";
 
 const features = [
@@ -65,6 +66,13 @@ const features = [
     description:
       "Connect with nearby Defend customers. A suspicious person near one home silently alerts all connected homes.",
     highlight: true,
+  },
+  {
+    icon: TrendingUp,
+    title: "Pays For Itself",
+    description:
+      "Ring costs £100+/year in subscriptions. Defend costs once. In 3 years you're £300 ahead and still fully protected.",
+    highlight: false,
   },
 ];
 
