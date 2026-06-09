@@ -5,7 +5,7 @@ const reviews = [
     name: "Mark T.",
     location: "Hastings",
     rating: 5,
-    text: "Came out within 48 hours of my enquiry, had everything fitted in about 90 minutes. The app is brilliant — I can see my whole drive and back garden from one camera. Already recommended it to my neighbour.",
+    text: "Came out promptly after my enquiry, had everything fitted quickly and with no mess. The app is brilliant — I can see my whole drive and back garden from one camera. Already recommended it to my neighbour.",
     cameras: 2,
   },
   {

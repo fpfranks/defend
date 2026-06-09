@@ -36,7 +36,7 @@ export default function HowItWorks() {
             Up and running in one visit
           </h2>
           <p className="text-white/50 max-w-xl mx-auto">
-            From booking to fully protected home in less than 48 hours.
+            Survey, quote, and installation — all done in a single visit.
           </p>
         </div>
 

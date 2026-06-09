@@ -10,7 +10,7 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Defend — AI Home Security, No Monthly Fees",
   description:
-    "AI-powered solar home security cameras installed in under 2 hours. No subscriptions. No cloud. No monthly fees. Covering the UK.",
+    "AI-powered solar home security cameras professionally installed in a single visit. No subscriptions. No cloud. No monthly fees. East Sussex, Kent &amp; Brighton.",
 };
 
 export default function RootLayout({

@@ -89,7 +89,7 @@ export default function Contact() {
                 ))}
               </div>
               <p className="text-xs text-white/60 italic leading-relaxed">
-                &ldquo;Had everything fitted in about 90 minutes. The app is brilliant — I can see my whole drive and back garden from one camera.&rdquo;
+                &ldquo;Had everything fitted quickly and with no mess. The app is brilliant — I can see my whole drive and back garden from one camera.&rdquo;
               </p>
               <p className="text-xs text-white/35 mt-2">Mark T. · Hastings · 2 cameras</p>
             </div>

@@ -142,7 +142,7 @@ export default function CustomQuote() {
               <div className="flex items-center gap-2 pt-1">
                 <Clock className="w-3.5 h-3.5 text-white/25" />
                 <span className="text-xs text-white/35">
-                  Installation time varies — usually a couple of hours
+                  Installation time varies — confirmed at your free survey
                 </span>
               </div>
             </div>

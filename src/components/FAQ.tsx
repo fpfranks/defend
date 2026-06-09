@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     q: "How long does installation take?",
-    a: "Most installs take between 1–3 hours depending on the number of cameras and access to the mounting positions. We'll give you a more accurate estimate after the free survey once we've seen the property.",
+    a: "It depends on the number of cameras and how accessible the mounting positions are. We'll give you a clear expectation after the free survey once we've walked the property — we won't start until you know what to expect.",
   },
   {
     q: "Do I need to be home during the survey and installation?",
-    a: "Yes — you'll need to be in for both. The survey takes 20–30 minutes. During installation we'll also set up the eufy app on your phone and walk you through using it before we leave.",
+    a: "Yes — you'll need to be in for both. The survey is quick. During installation we'll also set up the eufy app on your phone and walk you through using it before we leave.",
   },
   {
     q: "What happens if my WiFi goes down?",
