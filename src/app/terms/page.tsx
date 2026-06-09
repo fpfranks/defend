@@ -90,14 +90,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">7. Defend Care plan</h2>
-            <p>
-              The optional Defend Care annual plan (£59/year) provides priority fault response, an annual camera health check, warranty claim handling, and a dedicated support line. Care plan fees are non-refundable once an annual health check visit has taken place. The plan can be cancelled at renewal.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-3">8. Limitation of liability</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">7. Limitation of liability</h2>
             <ul className="list-disc list-inside space-y-1.5">
               <li>We do not monitor your cameras or provide any alarm monitoring service. Defend is an installation and support service only.</li>
               <li>We are not liable for any loss, theft, or damage that occurs at your property before, during, or after installation.</li>
@@ -107,7 +100,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">9. Your responsibilities</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">8. Your responsibilities</h2>
             <ul className="list-disc list-inside space-y-1.5">
               <li>You are responsible for ensuring your camera system complies with UK GDPR if it captures images of public spaces or neighbouring properties. Cameras should be directed at your own property as far as practicable.</li>
               <li>The Information Commissioner&apos;s Office (ICO) provides guidance on domestic CCTV use at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">ico.org.uk</a>.</li>
@@ -116,21 +109,21 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">10. Third-party products</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">9. Third-party products</h2>
             <p>
               eufy SoloCam S340 cameras are manufactured by Anker Innovations. Defend is an independent installation service and is not affiliated with or endorsed by eufy or Anker. Product warranties are subject to eufy&apos;s own terms. App functionality and cloud features (if any) are governed by eufy&apos;s privacy policy and terms of service.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">11. Governing law</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">10. Governing law</h2>
             <p>
               These terms are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">12. Changes to these terms</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">11. Changes to these terms</h2>
             <p>
               We may update these terms from time to time. The current version is always published on this page. Continued use of our services after an update constitutes acceptance of the revised terms.
             </p>
