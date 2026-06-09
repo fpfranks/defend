@@ -1,4 +1,4 @@
-import { Redis } from "@upstash/redis";
+import { put, list } from "@vercel/blob";
 
 export interface StoredLead {
   id: string;
@@ -10,15 +10,6 @@ export interface StoredLead {
   createdAt: number;
 }
 
-function getRedis() {
-  return new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL!,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-  });
-}
-
-const KEY = "defend:leads";
-
 export async function addLead(
   data: Omit<StoredLead, "id" | "createdAt">
 ): Promise<StoredLead> {
@@ -27,11 +18,21 @@ export async function addLead(
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     createdAt: Date.now(),
   };
-  await getRedis().lpush(KEY, lead);
+  await put(`leads/${lead.id}.json`, JSON.stringify(lead), {
+    access: "public",
+    contentType: "application/json",
+    addRandomSuffix: false,
+  });
   return lead;
 }
 
 export async function getLeads(): Promise<StoredLead[]> {
-  const list = await getRedis().lrange<StoredLead>(KEY, 0, -1);
-  return list ?? [];
+  const { blobs } = await list({ prefix: "leads/", limit: 1000 });
+  const leads = await Promise.all(
+    blobs.map(async (blob) => {
+      const res = await fetch(blob.url, { cache: "no-store" });
+      return res.json() as Promise<StoredLead>;
+    })
+  );
+  return leads.sort((a, b) => b.createdAt - a.createdAt);
 }
