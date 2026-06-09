@@ -6,6 +6,7 @@ import { Send, CheckCircle } from "lucide-react";
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -17,9 +18,20 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -209,9 +221,17 @@ export default function Contact() {
               )}
             </button>
 
-            <p className="text-xs text-white/25 text-center">
-              We&apos;ll call or WhatsApp within 24 hours.
-            </p>
+            {submitError && (
+              <p className="text-xs text-red-400 text-center">
+                Something went wrong — please call or WhatsApp us directly on{" "}
+                <a href="tel:07387344112" className="underline">07387 344112</a>.
+              </p>
+            )}
+            {!submitError && (
+              <p className="text-xs text-white/25 text-center">
+                We&apos;ll call or WhatsApp within 24 hours.
+              </p>
+            )}
           </form>
         </div>
       </div>

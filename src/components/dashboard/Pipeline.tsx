@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Users } from "lucide-react";
+import type { StoredLead } from "@/lib/leads-store";
 
 type LeadStage = "Enquiry" | "Survey Booked" | "Quoted" | "Won" | "Lost";
 
@@ -15,7 +16,27 @@ interface Lead {
   date: string;
 }
 
-const leads: Lead[] = [];
+const PKG_MAP: Record<string, { cameras: number; value: string }> = {
+  starter: { cameras: 1, value: "£199" },
+  home: { cameras: 2, value: "£399" },
+  full: { cameras: 4, value: "£699" },
+};
+
+function storedToLead(s: StoredLead): Lead {
+  const pkg = PKG_MAP[s.package] ?? { cameras: 0, value: "TBC" };
+  return {
+    name: s.name,
+    location: s.postcode || "—",
+    cameras: pkg.cameras,
+    value: pkg.value,
+    stage: "Enquiry",
+    source: "Website Form",
+    date: new Date(s.createdAt).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+    }),
+  };
+}
 
 const stageOrder: LeadStage[] = ["Enquiry", "Survey Booked", "Quoted", "Won", "Lost"];
 
@@ -37,7 +58,21 @@ function StageBadge({ stage }: { stage: LeadStage }) {
 }
 
 export default function Pipeline() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<LeadStage | "All">("All");
+
+  useEffect(() => {
+    fetch("/api/leads")
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data.leads)) {
+          setLeads(data.leads.map(storedToLead));
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
   const filtered = filter === "All" ? leads : leads.filter((l) => l.stage === filter);
 
@@ -75,21 +110,19 @@ export default function Pipeline() {
         ))}
       </div>
 
-      {leads.length === 0 ? (
+      {loading ? (
+        <div className="flex items-center justify-center py-14">
+          <div className="w-5 h-5 border-2 border-white/15 border-t-blue-400 rounded-full animate-spin" />
+        </div>
+      ) : leads.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-14 px-6 text-center">
           <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center mb-4">
             <Users className="w-5 h-5 text-white/30" />
           </div>
           <p className="text-sm font-medium text-white/50 mb-1">No leads yet</p>
-          <p className="text-xs text-white/30 mb-4">
-            Add your first enquiry to start tracking your pipeline and conversion rate.
+          <p className="text-xs text-white/30">
+            Website enquiries will appear here automatically once the storage is connected.
           </p>
-          <button
-            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors"
-            onClick={() => alert("Add lead modal coming soon — use the + Add Lead button above")}
-          >
-            + Add your first lead
-          </button>
         </div>
       ) : (
         <div className="overflow-x-auto">
@@ -107,10 +140,13 @@ export default function Pipeline() {
             </thead>
             <tbody>
               {filtered.map((lead, i) => (
-                <tr key={i} className={`hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-white/1" : "bg-transparent"}`}>
+                <tr
+                  key={i}
+                  className={`hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-white/1" : "bg-transparent"}`}
+                >
                   <td className="px-4 py-3 text-white/80 whitespace-nowrap font-medium">{lead.name}</td>
                   <td className="px-4 py-3 text-white/50 whitespace-nowrap">{lead.location}</td>
-                  <td className="px-4 py-3 text-white/60">{lead.cameras}</td>
+                  <td className="px-4 py-3 text-white/60">{lead.cameras || "—"}</td>
                   <td className="px-4 py-3 text-white/70 font-medium">{lead.value}</td>
                   <td className="px-4 py-3"><StageBadge stage={lead.stage} /></td>
                   <td className="px-4 py-3 text-white/40 text-xs">{lead.source}</td>
