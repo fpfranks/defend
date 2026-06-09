@@ -5,6 +5,7 @@ import Link from "next/link";
 import StatsRow from "@/components/dashboard/StatsRow";
 import RevenueChart from "@/components/dashboard/RevenueChart";
 import JobTracker from "@/components/dashboard/JobTracker";
+import Pipeline from "@/components/dashboard/Pipeline";
 import GrowthChecklist from "@/components/dashboard/GrowthChecklist";
 import ActionMatrix from "@/components/dashboard/ActionMatrix";
 
@@ -61,6 +62,9 @@ export default function DashboardPage() {
 
         {/* Revenue chart */}
         <RevenueChart />
+
+        {/* Pipeline */}
+        <Pipeline />
 
         {/* Jobs + Checklist side by side */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
