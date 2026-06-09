@@ -62,12 +62,18 @@ export default function JobTracker() {
       {jobs.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
           <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center mb-4">
-            <ClipboardList className="w-5 h-5 text-white/20" />
+            <ClipboardList className="w-5 h-5 text-white/30" />
           </div>
-          <p className="text-sm font-medium text-white/40 mb-1">No jobs yet</p>
-          <p className="text-xs text-white/25">
-            Your installs will appear here once you start booking jobs.
+          <p className="text-sm font-medium text-white/50 mb-1">No jobs yet</p>
+          <p className="text-xs text-white/30 mb-4">
+            Log your first install to start tracking revenue and profit.
           </p>
+          <button
+            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors"
+            onClick={() => alert("Add job modal coming soon — use the + Add Job button above")}
+          >
+            + Log your first job
+          </button>
         </div>
       ) : (
         <div className="overflow-x-auto">
@@ -85,7 +91,7 @@ export default function JobTracker() {
             </thead>
             <tbody>
               {jobs.map((job, i) => (
-                <tr key={i} className={i % 2 === 0 ? "bg-white/1" : "bg-transparent"}>
+                <tr key={i} className={`hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-white/1" : "bg-transparent"}`}>
                   <td className="px-4 py-3 text-white/60 whitespace-nowrap">{job.date || "—"}</td>
                   <td className="px-4 py-3 text-white/80 whitespace-nowrap">{job.customer}</td>
                   <td className="px-4 py-3 text-white/50">{job.postcode}</td>

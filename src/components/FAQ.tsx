@@ -88,25 +88,37 @@ export default function FAQ() {
                   }`}
                 />
               </button>
-              {open === i && (
+              <div
+                className={`overflow-hidden transition-all duration-200 ${open === i ? "max-h-96" : "max-h-0"}`}
+              >
                 <div className="px-6 pb-5 border-t border-white/5">
                   <p className="text-sm text-white/55 leading-relaxed pt-4">{faq.a}</p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
 
         <div className="mt-10 rounded-xl border border-white/8 bg-white/3 p-6 text-center">
           <p className="text-sm text-white/50">
-            Question not answered here?{" "}
+            Question not answered here? Call{" "}
+            <a href="tel:07387344112" className="text-white/70 hover:text-white transition-colors font-medium">
+              07387 344112
+            </a>
+            {", "}
             <a
-              href="#contact"
-              className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
+              href="https://wa.me/447387344112"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300 transition-colors"
             >
-              Send us a message
-            </a>{" "}
-            or call and we&apos;ll answer straight away.
+              WhatsApp
+            </a>
+            {", or "}
+            <a href="#contact" className="text-blue-400 hover:text-blue-300 transition-colors">
+              send a message
+            </a>
+            .
           </p>
         </div>
       </div>

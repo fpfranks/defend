@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface CheckItem {
   id: string;
@@ -10,7 +10,7 @@ interface CheckItem {
 const thirtyDay: CheckItem[] = [
   { id: "30-1", label: "Register self-employed with HMRC" },
   { id: "30-2", label: "Get public liability insurance (Simply Business)" },
-  { id: "30-3", label: "Buy starter kit — Eufy SoloCam + Raspberry Pi" },
+  { id: "30-3", label: "Buy starter kit — eufy SoloCam S340" },
   { id: "30-4", label: "Install at own home, film the process" },
   { id: "30-5", label: "Set up Google Business Profile" },
   { id: "30-6", label: "Post on local Facebook groups + Nextdoor" },
@@ -29,6 +29,20 @@ const ninetyDay: CheckItem[] = [
   { id: "90-8", label: "Set up bookings via website" },
 ];
 
+const STORAGE_KEY = "defend-checklist-v1";
+
+function ProgressBar({ done, total }: { done: number; total: number }) {
+  const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+  return (
+    <div className="h-1 w-full rounded-full bg-white/8 mt-2 mb-4 overflow-hidden">
+      <div
+        className="h-full rounded-full bg-blue-500 transition-all duration-300"
+        style={{ width: `${pct}%` }}
+      />
+    </div>
+  );
+}
+
 function ChecklistSection({ title, items, checked, onToggle }: {
   title: string;
   items: CheckItem[];
@@ -38,7 +52,7 @@ function ChecklistSection({ title, items, checked, onToggle }: {
   const doneCount = items.filter((i) => checked.has(i.id)).length;
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-1">
         <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
           {title}
         </h3>
@@ -46,28 +60,37 @@ function ChecklistSection({ title, items, checked, onToggle }: {
           {doneCount}/{items.length}
         </span>
       </div>
+      <ProgressBar done={doneCount} total={items.length} />
       <ul className="space-y-3">
         {items.map((item) => {
           const isChecked = checked.has(item.id);
           return (
             <li key={item.id} className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                id={item.id}
-                checked={isChecked}
-                onChange={() => onToggle(item.id)}
-                className="h-4 w-4 flex-shrink-0 rounded border-white/20 bg-white/5 accent-blue-500 cursor-pointer"
-              />
-              <label
-                htmlFor={item.id}
-                className={`text-sm cursor-pointer transition-colors ${
+              <button
+                type="button"
+                role="checkbox"
+                aria-checked={isChecked}
+                onClick={() => onToggle(item.id)}
+                className={`h-4 w-4 flex-shrink-0 rounded border transition-colors cursor-pointer flex items-center justify-center ${
                   isChecked
-                    ? "text-white/30 line-through"
-                    : "text-white/70"
+                    ? "bg-blue-600 border-blue-500"
+                    : "bg-white/5 border-white/20 hover:border-white/40"
+                }`}
+              >
+                {isChecked && (
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 10 8" fill="none">
+                    <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </button>
+              <span
+                onClick={() => onToggle(item.id)}
+                className={`text-sm cursor-pointer transition-colors select-none ${
+                  isChecked ? "text-white/30 line-through" : "text-white/70 hover:text-white/90"
                 }`}
               >
                 {item.label}
-              </label>
+              </span>
             </li>
           );
         })}
@@ -79,6 +102,13 @@ function ChecklistSection({ title, items, checked, onToggle }: {
 export default function GrowthChecklist() {
   const [checked, setChecked] = useState<Set<string>>(new Set());
 
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) setChecked(new Set(JSON.parse(saved)));
+    } catch {}
+  }, []);
+
   function toggle(id: string) {
     setChecked((prev) => {
       const next = new Set(prev);
@@ -87,6 +117,9 @@ export default function GrowthChecklist() {
       } else {
         next.add(id);
       }
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...next]));
+      } catch {}
       return next;
     });
   }

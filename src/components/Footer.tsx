@@ -16,7 +16,7 @@ export default function Footer() {
             <p className="text-xs text-white/35 leading-relaxed mb-4">
               Professional home security installation. AI-powered solar cameras. No monthly fees.
             </p>
-            <p className="text-xs text-white/50 font-medium">07387 344112</p>
+            <a href="tel:07387344112" className="text-xs text-white/50 font-medium hover:text-white/70 transition-colors">07387 344112</a>
             <p className="text-xs text-white/25">Mon–Sat · 8am–7pm</p>
           </div>
 

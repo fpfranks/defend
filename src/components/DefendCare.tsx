@@ -113,7 +113,7 @@ export default function DefendCare() {
               href="#contact"
               className="block text-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors"
             >
-              Ask About Defend Care
+              Add Defend Care — £59/yr
             </a>
             <p className="text-xs text-white/25 text-center mt-3">
               Available to add at point of installation or any time after.

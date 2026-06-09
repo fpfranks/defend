@@ -36,7 +36,7 @@ export default function HowItWorks() {
             Up and running in one visit
           </h2>
           <p className="text-white/50 max-w-xl mx-auto">
-            Survey, quote, and installation — all done in a single visit.
+            From first enquiry to fully protected home — usually within the week.
           </p>
         </div>
 

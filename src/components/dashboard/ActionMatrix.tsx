@@ -152,7 +152,7 @@ export default function ActionMatrix() {
             {rows.map((row, i) => (
               <tr
                 key={row.rank}
-                className={`border-b border-white/5 ${i % 2 === 0 ? "bg-transparent" : "bg-white/2"}`}
+                className={`border-b border-white/5 hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-transparent" : "bg-white/2"}`}
               >
                 <td className="px-4 py-3 text-white/30 font-medium">{row.rank}</td>
                 <td className="px-4 py-3 text-white/80">{row.opportunity}</td>

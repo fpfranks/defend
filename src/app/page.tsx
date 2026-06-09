@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import SocialProof from "@/components/SocialProof";
 import CrimeStats from "@/components/CrimeStats";
 import ProblemStatement from "@/components/ProblemStatement";
@@ -58,7 +59,10 @@ export default function Home() {
         {/* 17. Final CTA */}
         <Contact />
       </main>
+      {/* Extra padding so content isn't hidden behind the mobile CTA bar */}
+      <div className="h-20 md:hidden" />
       <Footer />
+      <MobileCtaBar />
     </>
   );
 }

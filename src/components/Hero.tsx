@@ -66,8 +66,9 @@ export default function Hero() {
             { icon: Shield, text: "Free survey — no obligation" },
             { icon: Sun, text: "Solar powered — zero running costs" },
             { icon: HardDrive, text: "Local storage — your data stays home" },
+            { icon: Shield, text: "Fully insured" },
           ].map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-2 text-sm text-white/40">
+            <div key={text} className="flex items-center gap-2 text-sm text-white/55">
               <Icon className="w-4 h-4 text-blue-400/70" />
               {text}
             </div>

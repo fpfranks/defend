@@ -78,12 +78,18 @@ export default function Pipeline() {
       {leads.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-14 px-6 text-center">
           <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center mb-4">
-            <Users className="w-5 h-5 text-white/20" />
+            <Users className="w-5 h-5 text-white/30" />
           </div>
-          <p className="text-sm font-medium text-white/40 mb-1">No leads yet</p>
-          <p className="text-xs text-white/25">
-            Add your first enquiry to start tracking your pipeline.
+          <p className="text-sm font-medium text-white/50 mb-1">No leads yet</p>
+          <p className="text-xs text-white/30 mb-4">
+            Add your first enquiry to start tracking your pipeline and conversion rate.
           </p>
+          <button
+            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors"
+            onClick={() => alert("Add lead modal coming soon — use the + Add Lead button above")}
+          >
+            + Add your first lead
+          </button>
         </div>
       ) : (
         <div className="overflow-x-auto">
@@ -101,7 +107,7 @@ export default function Pipeline() {
             </thead>
             <tbody>
               {filtered.map((lead, i) => (
-                <tr key={i} className={i % 2 === 0 ? "bg-white/1" : "bg-transparent"}>
+                <tr key={i} className={`hover:bg-white/5 transition-colors ${i % 2 === 0 ? "bg-white/1" : "bg-transparent"}`}>
                   <td className="px-4 py-3 text-white/80 whitespace-nowrap font-medium">{lead.name}</td>
                   <td className="px-4 py-3 text-white/50 whitespace-nowrap">{lead.location}</td>
                   <td className="px-4 py-3 text-white/60">{lead.cameras}</td>
