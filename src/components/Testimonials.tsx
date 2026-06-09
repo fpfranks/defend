@@ -47,8 +47,17 @@ export default function Testimonials() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             What customers say
           </h2>
-          <p className="text-white/50 max-w-xl mx-auto">
-            Real installs, real homes, real people.
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-white font-bold">5.0</span>
+            <span className="text-white/40 text-sm">· Verified customer installs</span>
+          </div>
+          <p className="text-white/40 text-sm max-w-xl mx-auto">
+            Every review is from a real customer, collected at the point of installation.
           </p>
         </div>
 
