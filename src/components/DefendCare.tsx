@@ -15,9 +15,9 @@ const perks = [
   },
   {
     icon: Shield,
-    title: "Extended Break-In Guarantee",
+    title: "Warranty Claim Handling",
     description:
-      "The standard guarantee lasts 12 months. Care extends it for as long as your plan is active — ongoing protection.",
+      "If a camera develops a fault, we deal with the eufy return process on your behalf. You don't have to touch it.",
   },
   {
     icon: Phone,
