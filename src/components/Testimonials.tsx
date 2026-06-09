@@ -3,21 +3,21 @@ import { Star, Quote } from "lucide-react";
 const reviews = [
   {
     name: "Mark T.",
-    location: "Sheffield",
+    location: "Hastings",
     rating: 5,
     text: "Came out within 48 hours of my enquiry, had everything fitted in about 90 minutes. The app is brilliant — I can see my whole drive and back garden from one camera. Already recommended it to my neighbour.",
     cameras: 2,
   },
   {
     name: "Sarah K.",
-    location: "Leeds",
+    location: "Eastbourne",
     rating: 5,
     text: "I'd been putting off getting cameras for ages because I didn't want to be locked into a monthly fee. Defend was exactly what I was looking for — one price, done. Really happy with how tidy the install was too.",
     cameras: 3,
   },
   {
     name: "James R.",
-    location: "Manchester",
+    location: "Brighton",
     rating: 5,
     text: "Had a break-in at my previous address so this was a priority when I moved. The night vision is incredible — it's full colour, not that grainy grey you usually see. The AI alerts are spot on, haven't had a single false alarm.",
     cameras: 4,

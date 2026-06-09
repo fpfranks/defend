@@ -7,7 +7,7 @@ const stats = [
   { icon: MapPin, value: "Local", label: "UK-based installer", sub: "answers the phone" },
 ];
 
-const areas = ["Sheffield", "Leeds", "Manchester", "Barnsley", "Rotherham", "Doncaster"];
+const areas = ["Battle", "Hastings", "Eastbourne", "Brighton", "Tunbridge Wells", "Tonbridge"];
 
 export default function SocialProof() {
   return (
@@ -21,7 +21,7 @@ export default function SocialProof() {
             ))}
           </div>
           <span className="text-white font-semibold text-sm">Rated 5.0 by customers across</span>
-          <span className="text-white/35 text-sm">{areas.join(" · ")}</span>
+          <span className="text-white/35 text-sm">East Sussex · Kent · Brighton</span>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">

@@ -1,6 +1,6 @@
 import { Shield } from "lucide-react";
 
-const areas = ["Sheffield", "Leeds", "Manchester", "Barnsley", "Rotherham", "Doncaster"];
+const areas = ["Battle", "Hastings", "Bexhill-on-Sea", "Eastbourne", "Rye", "Lewes", "Brighton", "Hove", "Tunbridge Wells", "Tonbridge"];
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
             <p className="text-xs text-white/35 leading-relaxed mb-4">
               Professional home security installation. AI-powered solar cameras. No monthly fees.
             </p>
-            <p className="text-xs text-white/50 font-medium">07700 000000</p>
+            <p className="text-xs text-white/50 font-medium">07387 344112</p>
             <p className="text-xs text-white/25">Mon–Sat · 8am–7pm</p>
           </div>
 

@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "What area do you cover?",
-    a: "We currently serve Sheffield, Leeds, Manchester, Barnsley, Rotherham, Doncaster and surrounding areas. Enter your postcode in the survey form and we'll confirm coverage — if we don't cover you yet we'll let you know honestly.",
+    a: "We're based in Battle, East Sussex and cover the surrounding area including Hastings, Bexhill-on-Sea, Eastbourne, Rye, Lewes, Heathfield, Crowborough, Brighton, Hove, Tunbridge Wells, Tonbridge, and most of East Sussex and the Kent/West Sussex borders. Enter your postcode in the survey form and we'll confirm — if you're on the edge we'll be honest with you.",
   },
   {
     q: "What if I move house?",
@@ -60,7 +60,11 @@ export default function FAQ() {
             Everything you need to know
           </h2>
           <p className="text-white/50">
-            Still have a question? Call or WhatsApp us directly.
+            Still have a question? Call or WhatsApp us on{" "}
+            <a href="tel:07387344112" className="text-blue-400 hover:text-blue-300 transition-colors">
+              07387 344112
+            </a>
+            .
           </p>
         </div>
 

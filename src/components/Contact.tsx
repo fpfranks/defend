@@ -78,7 +78,7 @@ export default function Contact() {
 
             <div className="mt-8 p-5 rounded-xl border border-white/8 bg-white/3">
               <p className="text-xs text-white/40 mb-1 uppercase tracking-widest">Prefer to call or WhatsApp?</p>
-              <p className="text-white font-semibold text-lg">07700 000000</p>
+              <p className="text-white font-semibold text-lg">07387 344112</p>
               <p className="text-xs text-white/30 mt-1">Mon–Sat · 8am–7pm</p>
             </div>
 
@@ -91,7 +91,7 @@ export default function Contact() {
               <p className="text-xs text-white/60 italic leading-relaxed">
                 &ldquo;Had everything fitted in about 90 minutes. The app is brilliant — I can see my whole drive and back garden from one camera.&rdquo;
               </p>
-              <p className="text-xs text-white/35 mt-2">Mark T. · Sheffield · 2 cameras</p>
+              <p className="text-xs text-white/35 mt-2">Mark T. · Hastings · 2 cameras</p>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ export default function Contact() {
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-blue-500/50 transition-colors"
-                  placeholder="07700 000000"
+                  placeholder="07387 344112"
                 />
               </div>
             </div>
